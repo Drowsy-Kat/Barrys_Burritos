@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home" />
+    <item
+
+        android:id="@+id/Ready_Made"
+        android:icon="@drawable/baseline_fastfood_24"
+        android:title="Ready-Made" />
+    <item
+
+        android:id="@+id/Custom"
+        android:icon="@drawable/baseline_edit_24"
+        android:title="Custom" />
+    <item
+
+        android:id="@+id/Cart"
+        android:icon="@drawable/baseline_shopping_cart_24"
+        android:title="Cart" />
+</menu>
