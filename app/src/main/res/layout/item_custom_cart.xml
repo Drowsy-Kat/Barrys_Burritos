@@ -23,9 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        app:layout_constraintTop_toBottomOf="@+id/burritoNameTextView"
         tools:text="Protein" />
 
     <TextView
@@ -139,7 +139,7 @@
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
         app:fabCustomSize="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/customRemove"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -151,6 +151,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_close_24" />
+
+    <TextView
+        android:id="@+id/burritoNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

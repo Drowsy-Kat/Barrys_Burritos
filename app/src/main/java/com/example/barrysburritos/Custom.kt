@@ -46,6 +46,9 @@ class Custom : Fragment() {
 
         addToCartButton.setOnClickListener {
             if (validateSelections(view)) {
+
+                val burritoName = view.findViewById<EditText>(R.id.burritoNameTextBox).text.toString()
+
                 val proteinChoice: String = getSelectedRadioButtonText(view.findViewById(R.id.radioGroupProtein))
                 val riceChoice: String = getSelectedRadioButtonText(view.findViewById(R.id.radioGroupRice))
                 val beansChoice: String = getSelectedRadioButtonText(view.findViewById(R.id.radioGroupBeans))
@@ -60,9 +63,10 @@ class Custom : Fragment() {
                 val quantity: Int = view.findViewById<EditText>(R.id.customQuantity).text.toString().toInt()
 
                 val cartItem = CustomCartItem(
-                    proteinChoice, riceChoice, beansChoice,
+                    burritoName,proteinChoice, riceChoice, beansChoice,
                     guacamole, sourCream, cheese, salsa,
                     size, quantity
+
                 )
                 customCartViewModel.addToCart(cartItem)
 
@@ -99,6 +103,12 @@ class Custom : Fragment() {
                 showToast("Please select an option in each category.")
                 return false
             }
+        }
+
+        val burritoNameTextBox = view.findViewById<EditText>(R.id.burritoNameTextBox)
+        if (burritoNameTextBox.text.isEmpty()) {
+            showToast("Please name your burrito.")
+            return false
         }
 
         return true

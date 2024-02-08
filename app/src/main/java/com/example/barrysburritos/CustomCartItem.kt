@@ -1,6 +1,7 @@
 package com.example.barrysburritos
 
 data class CustomCartItem(
+    val burritoName: String,
     val proteinChoice: String,
     val riceChoice: String,
     val beansChoice: String,
@@ -13,6 +14,7 @@ data class CustomCartItem(
 ){
     override fun toString(): String {
         return """
+            Item Name: $burritoName
             Protein Choice: $proteinChoice
             Rice Choice: $riceChoice
             Beans Choice: $beansChoice

@@ -50,8 +50,16 @@ class CartAdapter(
                 }
 
                 holder.itemView.findViewById<FloatingActionButton>(R.id.customCartSubtract).setOnClickListener {
-                    customCartItem.decreaseQuantity()
-                    notifyItemChanged(holder.adapterPosition)
+
+                    if (customCartItem.quantity > 1){
+                        customCartItem.decreaseQuantity()
+                        notifyItemChanged(holder.adapterPosition)
+                    }
+                    else{
+                        customCartViewModel.removeFromCart(customCartItem)
+                        items.removeAt(holder.adapterPosition)
+                        notifyItemRemoved(holder.adapterPosition)
+                    }
                 }
 
 
@@ -73,7 +81,17 @@ class CartAdapter(
                 }
 
                 holder.itemView.findViewById<FloatingActionButton>(R.id.premadeCartSubtract).setOnClickListener {
-                    premadeCartItem.decreaseQuantity()
+                    if (premadeCartItem.quantity > 1){
+                        premadeCartItem.decreaseQuantity()
+                        notifyItemChanged(holder.adapterPosition)
+
+                    }
+                    else{
+                        premadeCartViewModel.removeFromCart(premadeCartItem)
+                        items.removeAt(holder.adapterPosition)
+                        notifyItemRemoved(holder.adapterPosition)
+                    }
+
                     notifyItemChanged(holder.adapterPosition)
                 }
             }
@@ -96,6 +114,7 @@ class CartAdapter(
 class CustomCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(customCartItem: CustomCartItem) {
         // Bind data to views
+        itemView.findViewById<TextView>(R.id.burritoNameTextView).text = customCartItem.burritoName
         itemView.findViewById<TextView>(R.id.proteinTextView).text = customCartItem.proteinChoice
         itemView.findViewById<TextView>(R.id.riceTextView).text = customCartItem.riceChoice
         itemView.findViewById<TextView>(R.id.beansTextView).text = customCartItem.beansChoice

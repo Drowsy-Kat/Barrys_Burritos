@@ -44,5 +44,8 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
+    // TODO: make everything look pretty
+    // TODO: annotate code
+
 
 }

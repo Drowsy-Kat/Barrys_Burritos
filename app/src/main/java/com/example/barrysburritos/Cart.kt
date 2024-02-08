@@ -35,4 +35,8 @@ class Cart : Fragment() {
 
         return view
     }
-}
+ }
+// TODO: add function to save order to jason file
+// TODO: add to favorites feature
+// TODO: add to cart from favorites feature
+// TODO: PRIORITY add pricing functionality
