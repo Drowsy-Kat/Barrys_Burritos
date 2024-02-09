@@ -10,6 +10,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
@@ -18,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 class Custom : Fragment() {
 
     private lateinit var customCartViewModel: CustomCartViewModel
+    private var basePrice :Double = 7.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +35,44 @@ class Custom : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_custom, container, false)
 
-        val addToCartButton: Button = view.findViewById(R.id.addToCartCustom)
+
+
+        val checkBoxes = listOf<CheckBox>(
+            view.findViewById(R.id.guacamoleCheckBox),
+            view.findViewById(R.id.sourCreamCheckBox),
+            view.findViewById(R.id.cheeseCheckBox),
+            view.findViewById(R.id.salsaCheckBox)
+        )
+        val proteinRadioGroup = view.findViewById<RadioGroup>(R.id.radioGroupProtein)
+        val sizeRadioGroup = view.findViewById<RadioGroup>(R.id.radioGroupSize)
+
+
+
+        checkBoxes.forEach { checkBox ->
+            checkBox.setOnCheckedChangeListener { _, isChecked ->
+                updatePrice(proteinRadioGroup, checkBoxes, sizeRadioGroup)
+            }
+        }
+
+        proteinRadioGroup.setOnCheckedChangeListener { _, _ ->
+            updatePrice(proteinRadioGroup, checkBoxes, sizeRadioGroup)
+        }
+
+        sizeRadioGroup.setOnCheckedChangeListener { _, _ ->
+            updatePrice(proteinRadioGroup, checkBoxes, sizeRadioGroup)
+        }
+
+
+
 
         customCartViewModel.cartItems.observe(viewLifecycleOwner) { cartItemsList ->
             val cartSize = cartItemsList.size.toString()
             Toast.makeText(requireContext(), cartSize, Toast.LENGTH_SHORT).show()
         }
 
+
+
+        val addToCartButton: Button = view.findViewById(R.id.addToCartCustom)
 
 
 
@@ -65,7 +98,7 @@ class Custom : Fragment() {
                 val cartItem = CustomCartItem(
                     burritoName,proteinChoice, riceChoice, beansChoice,
                     guacamole, sourCream, cheese, salsa,
-                    size, quantity
+                    size, quantity, basePrice
 
                 )
                 customCartViewModel.addToCart(cartItem)
@@ -123,6 +156,33 @@ class Custom : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+
+    private fun updatePrice(proteinRadioGroup: RadioGroup, checkBoxes: List<CheckBox>, sizeRadioGroup: RadioGroup) {
+        var newBasePrice = if (proteinRadioGroup.checkedRadioButtonId == R.id.plandBasedRadio) {
+            8.0
+        } else {
+            7.0
+        }
+
+        checkBoxes.forEach { checkBox ->
+            if (checkBox.isChecked) {
+                newBasePrice += 0.5
+            }
+        }
+
+        basePrice = newBasePrice
+
+
+        if (sizeRadioGroup.checkedRadioButtonId == R.id.radiolarge) {
+            basePrice += 1.0
+        }
+
+        val priceTextView = view?.findViewById<TextView>(R.id.priceTextBox)
+        val quantity = view?.findViewById<EditText>(R.id.customQuantity)?.text.toString().toInt()
+        priceTextView?.text = "£${basePrice*quantity}"
+
     }
 
 

@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
 
     // TODO: make everything look pretty
     // TODO: annotate code
+    // TODO: remove test code
+    // TODO: remove unused code
+    // TODO: clean up code
 
 
 }

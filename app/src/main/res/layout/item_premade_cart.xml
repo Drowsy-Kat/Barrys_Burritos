@@ -71,6 +71,14 @@
         app:layout_constraintTop_toBottomOf="@+id/premadeCartAdd"
         app:srcCompat="@drawable/baseline_close_24" />
 
+    <TextView
+        android:id="@+id/premadeCartPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/premadeRemove" />
+
     <!-- Add other views here -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

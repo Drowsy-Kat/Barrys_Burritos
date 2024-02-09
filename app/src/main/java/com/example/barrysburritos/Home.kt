@@ -23,4 +23,6 @@ class Home : Fragment() {
     }
 
 //TODO: actually make this a home page
+//TODO: get better quality for the low res burrito image
+//TODO: load images from the internet
 }

@@ -52,5 +52,5 @@ class Ready_Made : Fragment() {
 
     }
 
-
+//TODO: add quantity to premade items
 }

@@ -46,7 +46,7 @@ class PremadeAdapter(
 
         // Bind data to your view components here
         holder.titleTextView.text = premadeItem.title
-        holder.priceTextView.text = premadeItem.price
+        holder.priceTextView.text = "£${ String.format("%.2f", premadeItem.price)}"
 
         // Use getImageResourceByName to load image dynamically
         holder.imageView.setImageResource(
@@ -100,7 +100,7 @@ class PremadeAdapter(
 
         titleTextView.text = premadeItem.title
         descriptionTextView.text = premadeItem.description
-        priceTextView.text = premadeItem.price
+        priceTextView.text = "£ ${ String.format("%.2f", premadeItem.price)}"
         val imageName = premadeItem.imageName
         val resourceId = getImageResourceByName(context, imageName)
         imageView.setImageResource(resourceId)

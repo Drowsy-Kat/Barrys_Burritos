@@ -162,5 +162,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
 
+    <TextView
+        android:id="@+id/customCartPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/customRemove" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,8 @@ data class CustomCartItem(
     val cheese: Boolean,
     val salsa: Boolean,
     val size: String,
-    var quantity: Int
+    var quantity: Int,
+    val price: Double
 ){
     override fun toString(): String {
         return """

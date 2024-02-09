@@ -33,70 +33,79 @@ class CartAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = items[position]
+
         when (holder) {
             is CustomCartItemViewHolder -> {
                 val customCartItem = item as CustomCartItem
+
                 holder.bind(customCartItem)
-                holder.itemView.findViewById<FloatingActionButton>(R.id.customRemove).setOnClickListener {
-                    // Remove item from the list and notify the adapter
-                    customCartViewModel.removeFromCart(customCartItem)
-                    items.removeAt(holder.adapterPosition)
-                    notifyItemRemoved(holder.adapterPosition)
-                }
-
-                holder.itemView.findViewById<FloatingActionButton>(R.id.customCartAdd).setOnClickListener {
-                    customCartItem.increaseQuantity()
-                    notifyItemChanged(holder.adapterPosition)
-                }
-
-                holder.itemView.findViewById<FloatingActionButton>(R.id.customCartSubtract).setOnClickListener {
-
-                    if (customCartItem.quantity > 1){
-                        customCartItem.decreaseQuantity()
-                        notifyItemChanged(holder.adapterPosition)
-                    }
-                    else{
+                holder.itemView.findViewById<FloatingActionButton>(R.id.customRemove)
+                    .setOnClickListener {
+                        // Remove item from the list and notify the adapter
                         customCartViewModel.removeFromCart(customCartItem)
                         items.removeAt(holder.adapterPosition)
                         notifyItemRemoved(holder.adapterPosition)
                     }
-                }
 
+                holder.itemView.findViewById<FloatingActionButton>(R.id.customCartAdd)
+                    .setOnClickListener {
+                        customCartViewModel.increaseQuantity(customCartItem)
+                        notifyItemChanged(holder.adapterPosition)
+                    }
+
+                holder.itemView.findViewById<FloatingActionButton>(R.id.customCartSubtract)
+                    .setOnClickListener {
+
+                        if (customCartItem.quantity > 1) {
+                            customCartViewModel.decreaseQuantity(customCartItem)
+                            notifyItemChanged(holder.adapterPosition)
+                        } else {
+                            customCartViewModel.removeFromCart(customCartItem)
+                            items.removeAt(holder.adapterPosition)
+                            notifyItemRemoved(holder.adapterPosition)
+                        }
+                    }
 
 
             }
+
             is PremadeCartItemViewHolder -> {
                 val premadeCartItem = item as PremadeCartItem
+
                 holder.bind(premadeCartItem)
-                holder.itemView.findViewById<FloatingActionButton>(R.id.premadeRemove).setOnClickListener {
-                    // Remove item from the list and notify the adapter
-                    premadeCartViewModel.removeFromCart(premadeCartItem)
-                    items.removeAt(holder.adapterPosition)
-                    notifyItemRemoved(holder.adapterPosition)
-                }
-
-                holder.itemView.findViewById<FloatingActionButton>(R.id.premadeCartAdd).setOnClickListener {
-                    premadeCartItem.increaseQuantity()
-                    notifyItemChanged(holder.adapterPosition)
-                }
-
-                holder.itemView.findViewById<FloatingActionButton>(R.id.premadeCartSubtract).setOnClickListener {
-                    if (premadeCartItem.quantity > 1){
-                        premadeCartItem.decreaseQuantity()
-                        notifyItemChanged(holder.adapterPosition)
-
-                    }
-                    else{
+                holder.itemView.findViewById<FloatingActionButton>(R.id.premadeRemove)
+                    .setOnClickListener {
+                        // Remove item from the list and notify the adapter
                         premadeCartViewModel.removeFromCart(premadeCartItem)
                         items.removeAt(holder.adapterPosition)
                         notifyItemRemoved(holder.adapterPosition)
                     }
 
-                    notifyItemChanged(holder.adapterPosition)
-                }
+                holder.itemView.findViewById<FloatingActionButton>(R.id.premadeCartAdd)
+                    .setOnClickListener {
+                        premadeCartViewModel.increaseQuantity(premadeCartItem)
+                        notifyItemChanged(holder.adapterPosition)
+                    }
+
+                holder.itemView.findViewById<FloatingActionButton>(R.id.premadeCartSubtract)
+                    .setOnClickListener {
+                        if (premadeCartItem.quantity > 1) {
+                            premadeCartViewModel.decreaseQuantity(premadeCartItem)
+                            notifyItemChanged(holder.adapterPosition)
+
+                        } else {
+                            premadeCartViewModel.removeFromCart(premadeCartItem)
+                            items.removeAt(holder.adapterPosition)
+                            notifyItemRemoved(holder.adapterPosition)
+                        }
+
+                        notifyItemChanged(holder.adapterPosition)
+                    }
             }
         }
-    }
+
+        }
+
 
 
     override fun getItemCount(): Int = items.size
@@ -124,6 +133,7 @@ class CustomCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
         itemView.findViewById<TextView>(R.id.cheeseTextView).visibility = if (customCartItem.cheese) View.VISIBLE else View.GONE
         itemView.findViewById<TextView>(R.id.sizeTextView).text = customCartItem.size
         itemView.findViewById<TextView>(R.id.quantityTextView).text = customCartItem.quantity.toString()
+        itemView.findViewById<TextView>(R.id.customCartPriceTextView).text = "£${"%.2f".format(customCartItem.price * customCartItem.quantity)}"
 
 
 
@@ -139,6 +149,7 @@ class PremadeCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
         // Bind data to views
         itemView.findViewById<TextView>(R.id.titleTextView).text = premadeCartItem.item.title
         itemView.findViewById<TextView>(R.id.cartQuantityReadyMade).text = premadeCartItem.quantity.toString()
+        itemView.findViewById<TextView>(R.id.premadeCartPriceTextView).text = "£${"%.2f".format(premadeCartItem.item.price * premadeCartItem.quantity)}"
         // Bind other views here
     }
 }
