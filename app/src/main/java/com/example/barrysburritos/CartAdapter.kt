@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CartAdapter(
-    private val items: MutableList<Any>,
+    private var items: MutableList<Any>,
     private val customCartViewModel: CustomCartViewModel,
     private val premadeCartViewModel: PremadeCartViewModel
     ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
-
+    fun updateItems(newItems: MutableList<Any>) {
+        items = newItems
+        notifyDataSetChanged()
+    }
     private val CUSTOM_ITEM = 0
     private val PREMADE_ITEM = 1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

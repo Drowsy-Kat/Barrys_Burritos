@@ -58,6 +58,11 @@ class CustomCartViewModel : ViewModel() {
 
     }
 
+    fun clearCart() {
+        _cartItems.value = emptyList()
+        _totalCost.value = 0.0
+    }
+
 
 }
 

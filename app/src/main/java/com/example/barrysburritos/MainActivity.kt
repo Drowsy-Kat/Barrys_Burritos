@@ -9,15 +9,23 @@ import com.example.barrysburritos.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var premadeViewModel: PremadeViewModel
+
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        premadeViewModel = ViewModelProvider(this)[PremadeViewModel::class.java]
+
+        premadeViewModel.loadPremadeItems(this)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Home())
+
+
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId)
@@ -49,6 +57,7 @@ class MainActivity : AppCompatActivity() {
     // TODO: remove test code
     // TODO: remove unused code
     // TODO: clean up code
+    // TODO: remove unused imports
 
 
 }

@@ -47,5 +47,9 @@ class PremadeCartViewModel : ViewModel() {
         _cartItems.value = currentList
         updateTotalCost()
     }
+    fun clearCart() {
+        _cartItems.value = emptyList()
+        _totalCost.value = 0.0
+    }
 
 }

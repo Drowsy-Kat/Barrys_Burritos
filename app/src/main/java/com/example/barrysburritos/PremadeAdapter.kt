@@ -9,15 +9,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.IOException
 import java.nio.charset.Charset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import androidx.fragment.app.Fragment
-import com.example.barrysburritos.PremadeCartViewModel
 
 class PremadeAdapter(
     private val premadeList: List<PremadeItem>,
@@ -38,9 +35,12 @@ class PremadeAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PremadeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.readymade_item, parent, false)
         return PremadeViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: PremadeViewHolder, position: Int) {
+
+
         val premadeItem = premadeList[position]
 
 
@@ -121,14 +121,14 @@ class PremadeAdapter(
     }
 
     companion object {
-        fun loadFromJson(context: Context, fileName: String): List<PremadeItem> {
+        fun ssssssssssssssssssssssssssssssss(context: Context, fileName: String): List<PremadeItem> {
             val json: String = try {
                 context.assets.open(fileName).bufferedReader(Charset.defaultCharset()).use {
                     it.readText()
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
-                return emptyList()
+                return emptyList()//todo: get rid of this
             }
 
             val listType = object : TypeToken<List<PremadeItem>>() {}.type
