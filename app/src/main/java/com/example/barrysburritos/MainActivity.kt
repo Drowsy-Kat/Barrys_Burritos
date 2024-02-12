@@ -52,10 +52,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    // TODO: make everything look pretty
-    // TODO: annotate code
-    // TODO: clean up code
-    // TODO: organise file structure
+
 
 
 

@@ -20,6 +20,6 @@ class Home : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-//TODO: actually make this a home page
+
 
 }

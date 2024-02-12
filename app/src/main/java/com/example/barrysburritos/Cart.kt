@@ -330,7 +330,6 @@ class Cart : Fragment() {
 
  }
 
-//TODO: current fav crashes when empty
 
 
 
