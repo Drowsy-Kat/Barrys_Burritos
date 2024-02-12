@@ -17,13 +17,14 @@
         android:clickable="true"
         android:src="@drawable/baseline_favorite_24"
         app:layout_constraintBottom_toTopOf="@+id/customRemove"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/add_as_favourite" />
 
     <TextView
         android:id="@+id/customCartItemTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Custom Burrito"
+        android:text="@string/custom_burrito"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +46,8 @@
         android:layout_marginTop="10dp"
         android:text="Rice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/proteinTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/proteinTextView"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/beansTextView"
@@ -55,7 +57,8 @@
         android:layout_marginTop="10dp"
         android:text="Beans"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/riceTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/riceTextView"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/guacamoleTextView"
@@ -64,7 +67,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
 
-        android:text="Guacamole"
+        android:text="@string/guacamole"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/beansTextView" />
@@ -75,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:text="Sour Cream"
+        android:text="@string/sour_cream"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guacamoleTextView" />
 
@@ -85,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:text="Cheese"
+        android:text="@string/cheese"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourCreamTextView" />
 
@@ -97,7 +100,8 @@
         android:layout_marginEnd="16dp"
         android:text="x"
         app:layout_constraintEnd_toStartOf="@+id/customCartAdd"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/salsaTextViewCart"
@@ -105,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:text="Salsa"
+        android:text="@string/salsa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cheeseTextView" />
 
@@ -117,7 +121,8 @@
         android:layout_marginTop="10dp"
         android:text="Size"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/salsaTextViewCart" />
+        app:layout_constraintTop_toBottomOf="@+id/salsaTextViewCart"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/quantityTextView"
@@ -126,7 +131,8 @@
         android:layout_marginTop="32dp"
         android:text="1"
         app:layout_constraintEnd_toStartOf="@+id/x"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        tools:ignore="HardcodedText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/customCartSubtract"

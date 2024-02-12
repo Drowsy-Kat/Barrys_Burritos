@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
-        android:text="Custom Burrito"
+        android:text="@string/custom_burrito_title"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Protein Choice" />
+                android:text="@string/protein_choice" />
 
             <RadioGroup
                 android:id="@+id/radioGroupProtein"
@@ -50,26 +50,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="Steak" />
+                    android:text="@string/steak" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pulled pork" />
+                    android:text="@string/pulled_pork" />
 
                 <RadioButton
                     android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="Grilled chicken" />
+                    android:text="@string/grilled_chicken" />
 
                 <RadioButton
                     android:id="@+id/plandBasedRadio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Plant based soya mince" />
+                    android:text="@string/plant_based_soya_mince" />
 
             </RadioGroup>
 
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Rice" />
+                android:text="@string/rice" />
 
             <RadioGroup
                 android:id="@+id/radioGroupRice"
@@ -90,20 +90,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="White" />
+                    android:text="@string/white" />
 
                 <RadioButton
                     android:id="@+id/radioButton6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="Brown" />
+                    android:text="@string/brown" />
 
                 <RadioButton
                     android:id="@+id/radioButton8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="No rice" />
+                    android:text="@string/no_rice" />
 
             </RadioGroup>
 
@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Beans" />
+                android:text="@string/beans" />
 
             <RadioGroup
                 android:id="@+id/radioGroupBeans"
@@ -124,20 +124,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="Black" />
+                    android:text="@string/black" />
 
                 <RadioButton
                     android:id="@+id/radioButton10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="Pinto" />
+                    android:text="@string/pinto" />
 
                 <RadioButton
                     android:id="@+id/radioButton11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="No beans" />
+                    android:text="@string/no_beans" />
 
             </RadioGroup>
 
@@ -146,42 +146,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Extras" />
+                android:text="@string/extras" />
 
             <CheckBox
                 android:id="@+id/guacamoleCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Guacamole" />
+                android:text="@string/guacamole" />
 
             <CheckBox
                 android:id="@+id/sourCreamCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Sour cream" />
+                android:text="@string/sour_cream" />
 
             <CheckBox
                 android:id="@+id/cheeseCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Cheese" />
+                android:text="@string/cheese" />
 
             <CheckBox
                 android:id="@+id/salsaCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Salsa" />
+                android:text="@string/salsa" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="size" />
+                android:text="@string/size" />
 
             <RadioGroup
 
@@ -194,13 +194,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
-                    android:text="Medium" />
+                    android:text="@string/medium" />
 
                 <RadioButton
                     android:id="@+id/radiolarge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Large" />
+                    android:text="@string/large" />
 
             </RadioGroup>
 
@@ -209,7 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="Quantity" />
+                android:text="@string/quantity" />
 
             <EditText
                 android:id="@+id/customQuantity"
@@ -217,7 +217,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
                 android:inputType="number"
-                android:text="1" />
+                android:text="@string/_1"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -227,7 +229,7 @@
                     android:id="@+id/burritoNameTextBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name your burrito" />
+                    android:hint="@string/name_your_burrito" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -238,7 +240,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
-        android:text="Add to cart"
+        android:text="@string/add_to_cart"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
@@ -246,7 +248,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
-        android:text="Price"
+        android:text="@string/price"
         app:layout_constraintBottom_toTopOf="@+id/addToCartCustom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

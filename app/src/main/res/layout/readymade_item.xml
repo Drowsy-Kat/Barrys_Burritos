@@ -17,7 +17,8 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/premadeImage"
@@ -29,7 +30,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/premadeTitle"
-        app:srcCompat="@drawable/pika_miku" />
+        app:srcCompat="@drawable/pika_miku"
+        android:contentDescription="@string/image_of_a_burrito" />
 
     <TextView
 
@@ -43,14 +45,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/premadeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/premadeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
-        android:text="Add to Cart"
+        android:text="@string/add_to_cart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

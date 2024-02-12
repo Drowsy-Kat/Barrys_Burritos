@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/aldrich"
-        android:text="Menu"
+        android:text="@string/menu"
         android:textSize="48sp" />
 
     <androidx.recyclerview.widget.RecyclerView

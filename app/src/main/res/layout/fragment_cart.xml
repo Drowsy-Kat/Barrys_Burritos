@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
-        android:text="Cart"
+        android:text="@string/cartTitle"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
-        android:text="Total: £0:00"
-        android:textSize="30dp"
+        android:text="@string/totalDefaltValue"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -43,7 +43,7 @@
         android:id="@+id/checkoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Checkout"
+        android:text="@string/checkoutButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cartPriceTextView" />
@@ -52,7 +52,7 @@
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Favorite"
+        android:text="@string/add_favorite_button"
         app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

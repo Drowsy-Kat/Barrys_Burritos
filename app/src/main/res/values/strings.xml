@@ -3,4 +3,47 @@
     <!-- TODO: turn text into string resources -->
 
     <string name="custom_burrito">Custom Burrito</string>
+    <string name="cartTitle">Cart</string>
+    <string name="totalDefaltValue">Total: £0:00</string>
+    <string name="checkoutButtonText">Checkout</string>
+    <string name="add_favorite_button">Add Favorite</string>
+    <string name="custom_burrito_title">Custom Burrito</string>
+    <string name="protein_choice">Protein Choice</string>
+    <string name="steak">Steak</string>
+    <string name="pulled_pork">Pulled pork</string>
+    <string name="grilled_chicken">Grilled chicken</string>
+    <string name="plant_based_soya_mince">Plant based soya mince</string>
+    <string name="rice">Rice</string>
+    <string name="white">White</string>
+    <string name="brown">Brown</string>
+    <string name="no_rice">No rice</string>
+    <string name="beans">Beans</string>
+    <string name="black">Black</string>
+    <string name="pinto">Pinto</string>
+    <string name="no_beans">No beans</string>
+    <string name="extras">Extras</string>
+    <string name="guacamole">Guacamole</string>
+    <string name="sour_cream">Sour cream</string>
+    <string name="cheese">Cheese</string>
+    <string name="salsa">Salsa</string>
+    <string name="size">size</string>
+    <string name="medium">Medium</string>
+    <string name="large">Large</string>
+    <string name="quantity">Quantity</string>
+    <string name="_1">1</string>
+    <string name="name_your_burrito">Name your burrito</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="price">Price</string>
+    <string name="barry_s_burritos">Barry\'s Burritos</string>
+    <string name="think_burrito">Think Burrito?</string>
+    <string name="think_barry">Think Barry</string>
+    <string name="menu">Menu</string>
+    <string name="add_more_to_cart">add more to cart</string>
+    <string name="lessen_amount_of_item_in_cart">lessen amount of item in cart</string>
+    <string name="remove_from_cart">remove from cart</string>
+    <string name="add_as_favourite">Add as favourite</string>
+    <string name="increase_ammount_to_add">increase ammount to add</string>
+    <string name="decrease_ammount_in_cart">decrease ammount in cart</string>
+    <string name="image_of_a_burrito">image of a burrito</string>
+    <string name="banner_image_of_burritos">banner image of burritos</string>
 </resources>

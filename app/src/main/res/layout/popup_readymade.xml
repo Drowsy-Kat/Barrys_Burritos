@@ -20,7 +20,8 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
 
     <ImageView
@@ -36,7 +37,9 @@
         android:src="@drawable/pika_miku"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popupTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/popupTitle"
+        android:contentDescription="@string/image_of_a_burrito"
+         />
 
     <TextView
         android:id="@+id/popupCost"
@@ -53,7 +56,8 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popupImage" />
+        app:layout_constraintTop_toBottomOf="@+id/popupImage"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/popupDescription"
@@ -70,7 +74,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popupCost" />
+        app:layout_constraintTop_toBottomOf="@+id/popupCost"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/popupButton"
@@ -80,7 +85,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Add to Cart"
+        android:text="@string/add_to_cart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -95,7 +100,8 @@
         android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/popupButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_add_24" />
+        app:srcCompat="@drawable/baseline_add_24"
+        android:contentDescription="@string/increase_ammount_to_add" />
 
     <TextView
         android:id="@+id/quantityPopupTextView"
@@ -106,7 +112,8 @@
         android:text="Quantity"
         app:layout_constraintBottom_toTopOf="@+id/popupButton"
         app:layout_constraintEnd_toStartOf="@+id/popupIncreaseButton"
-        app:layout_constraintStart_toEndOf="@+id/popupDecreaseButton" />
+        app:layout_constraintStart_toEndOf="@+id/popupDecreaseButton"
+        tools:ignore="HardcodedText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/popupDecreaseButton"
@@ -117,6 +124,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/popupButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_close_24" />
+        app:srcCompat="@drawable/baseline_remove_24"
+        android:contentDescription="@string/decrease_ammount_in_cart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
