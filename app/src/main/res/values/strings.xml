@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Barry’s Burritos</string>
-    <!-- TODO: turn text into string resources -->
+
 
     <string name="custom_burrito">Custom Burrito</string>
     <string name="cartTitle">Cart</string>

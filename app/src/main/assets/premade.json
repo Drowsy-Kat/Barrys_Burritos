@@ -2,7 +2,7 @@
   {"id": 1, "title": "Beef and Cheese Burrito", "description": "Beef mince slathered with creamy queso. With rice, cheese, fajita veg, beans.", "imageName": "beef_and_cheese_burrito", "price": 7.95 },
   {"id": 2, "title": "Chicken Tinga Burrito", "description": "This chicken knows how to shred. With rice, cheese, fajita veg, beans.", "imageName": "chicken_tinga_burrito", "price": 7.95 },
   {"id": 3, "title": "Plant-Based Soya Mince Burrito", "description": "Seasoned plant-based soya mince for the plant-ivores. With rice, cheese, fajita veg, beans.", "imageName": "plant_based_soya_mince_burrito", "price": 8.50},
-  {"id": 4, "title": "Pulled Pork Burrito", "description": "Pulled pork gets saucy. With rice, cheese, fajita veg, beans.", "imageName": "pulled_pork_burrito", "price": 7.50}
-
-
+  {"id": 4, "title": "Pulled Pork Burrito", "description": "Pulled pork gets saucy. With rice, cheese, fajita veg, beans.", "imageName": "pulled_pork_burrito", "price": 7.50},
+  {"id": 5, "title": "Chicken Pibil Burrito", "description": "We've updated our chicken recipe to an authentic Mexican recipe to balance your burrito!","imageName": "chicken_pibil","price": 9.60},
+  {"id": 6, "title": "Grilled Veg Burrito", "description": "Tortilla wrap filled with grilled veg & your choice of rice, beans, salsa & toppings. Includes free guacamole.","imageName": "grilled_veg","price": 9.60}
 ]

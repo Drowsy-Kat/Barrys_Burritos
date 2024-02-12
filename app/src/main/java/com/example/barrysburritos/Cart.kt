@@ -4,6 +4,7 @@ package com.example.barrysburritos
 
 import Order
 import android.annotation.SuppressLint
+import android.content.Context
 
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -94,28 +96,33 @@ class Cart : Fragment() {
 
         view.findViewById<Button>(R.id.favoriteButton).setOnClickListener {
 
+            if(isFavoriteEmpty(requireContext())) {
+                Toast.makeText(requireContext(), "No favorites to add to cart", Toast.LENGTH_SHORT).show()
+            }else {
+                val favoritesJson =
+                    premadeCartViewModel.returnFavoritesFromJsonAsString(requireContext())
+                val favorites = getFavorites(favoritesJson)
+                //Toast.makeText(requireContext(), favorites.toString(), Toast.LENGTH_SHORT).show()
 
-            val favoritesJson = premadeCartViewModel.returnFavoritesFromJsonAsString(requireContext())
-            val favorites = getFavorites(favoritesJson)
-            //Toast.makeText(requireContext(), favorites.toString(), Toast.LENGTH_SHORT).show()
-
-            if (favorites is PremadeOrderItem) {
-                val cartItem = premadeCartViewModel.convertToCartItem(favorites, premadeViewModel)
-                premadeCartViewModel.addToCart(cartItem)
-            } else if (favorites is CustomCartItem) {
-                customCartViewModel.addToCart(favorites)
+                if (favorites is PremadeOrderItem) {
+                    val cartItem =
+                        premadeCartViewModel.convertToCartItem(favorites, premadeViewModel)
+                    premadeCartViewModel.addToCart(cartItem)
+                } else if (favorites is CustomCartItem) {
+                    customCartViewModel.addToCart(favorites)
+                }
+                val allItems = mutableListOf<Any>()
+                allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
+                allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
+                adapter.updateItems(allItems)
             }
-            val allItems = mutableListOf<Any>()
-            allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
-            allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
-            adapter.updateItems(allItems)
         }
 
 
 
         return view
     }
-    fun getFavorites(json: String): Any? {
+    private fun getFavorites(json: String): Any? {
         val gson = Gson()
         return try {
             val jsonObject = JsonParser.parseString(json).asJsonObject
@@ -136,6 +143,18 @@ class Cart : Fragment() {
         }
     }
 
+    private fun isFavoriteEmpty(context: Context): Boolean {
+        val resourceId = R.raw.favorite
+        val jsonString = try {
+            context.resources.openRawResource(resourceId).bufferedReader().use { it.readText() }
+        } catch (e: Exception) {
+            e.printStackTrace() // Log the exception for debugging
+            return true // Treat any exception (including file not found) as empty JSON
+        }
+
+        // Check if the JSON string is empty or not
+        return jsonString.trim().isEmpty()
+    }
 
 
 

@@ -54,11 +54,9 @@ class MainActivity : AppCompatActivity() {
 
     // TODO: make everything look pretty
     // TODO: annotate code
-    // TODO: remove test code
-    // TODO: remove unused code
     // TODO: clean up code
-    // TODO: remove unused imports
     // TODO: organise file structure
+    // TODO: display previous order
 
 
 }

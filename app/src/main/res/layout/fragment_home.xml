@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-    <!-- TODO: create home fragment -->
+
 
     <TextView
         android:id="@+id/textView7"
