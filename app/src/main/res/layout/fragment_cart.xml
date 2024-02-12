@@ -44,33 +44,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkoutButtonText"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cartPriceTextView" />
 
     <Button
         android:id="@+id/favoriteButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         android:text="@string/add_favorite_button"
         app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewLastOrderButton" />
 
     <Button
         android:id="@+id/viewLastOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         android:text="@string/last_order"
-        app:layout_constraintBottom_toTopOf="@+id/cartPriceTextView"
-        app:layout_constraintEnd_toStartOf="@+id/favoriteButton"
-        app:layout_constraintStart_toEndOf="@+id/currentFavorite" />
+        app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/currentFavorite"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         android:text="Current Favorite"
-        app:layout_constraintBottom_toTopOf="@+id/cartPriceTextView"
+        app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
+        app:layout_constraintEnd_toStartOf="@+id/viewLastOrderButton"
         app:layout_constraintStart_toStartOf="parent" />
 
 
