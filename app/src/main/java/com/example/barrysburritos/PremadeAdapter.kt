@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 import androidx.recyclerview.widget.RecyclerView
 
@@ -65,7 +66,11 @@ class PremadeAdapter(
             // Do something when the button is clicked
             // For example, show a different toast
 
-
+            Toast.makeText(
+                holder.itemView.context,
+                "Added to cart: ${premadeItem.title}",
+                Toast.LENGTH_SHORT
+            ).show()
             val premadeCartItem = PremadeCartItem(premadeItem, 1)
             premadeCartViewModel.addToCart(premadeCartItem)
 
@@ -130,6 +135,11 @@ class PremadeAdapter(
         // Set OnClickListener for the button
         popupButton.setOnClickListener {
             // Handle button click here
+            Toast.makeText(
+                context,
+                "Added to cart: ${premadeItem.title} x $quantity",
+                Toast.LENGTH_SHORT
+            ).show()
 
             val premadeCartItem = PremadeCartItem(premadeItem, quantity )
             premadeCartViewModel.addToCart(premadeCartItem)

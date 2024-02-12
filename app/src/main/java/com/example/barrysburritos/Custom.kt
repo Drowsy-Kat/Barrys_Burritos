@@ -104,7 +104,7 @@ class Custom : Fragment() {
                 )
                 customCartViewModel.addToCart(cartItem)
 
-
+                Toast.makeText(requireContext(), "Added ${burritoName} to cart", Toast.LENGTH_SHORT).show()
 
 
                 val fragmentTransaction = requireFragmentManager().beginTransaction()

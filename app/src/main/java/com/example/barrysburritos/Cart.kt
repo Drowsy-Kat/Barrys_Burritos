@@ -111,8 +111,10 @@ class Cart : Fragment() {
                     val cartItem =
                         premadeCartViewModel.convertToCartItem(favorites, premadeViewModel)
                     premadeCartViewModel.addToCart(cartItem)
+                    Toast.makeText(requireContext(), "Added to cart: ${cartItem.item.title}", Toast.LENGTH_SHORT).show()
                 } else if (favorites is CustomCartItem) {
                     customCartViewModel.addToCart(favorites)
+                    Toast.makeText(requireContext(), "Added to cart: ${favorites.burritoName}", Toast.LENGTH_SHORT).show()
                 }
                 val allItems = mutableListOf<Any>()
                 allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
@@ -213,6 +215,7 @@ class Cart : Fragment() {
                         Toast.makeText(requireContext(), "No favorites to show", Toast.LENGTH_SHORT)
                             .show()
                     }
+
                 }
             }
 
