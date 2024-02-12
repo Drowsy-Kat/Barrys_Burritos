@@ -1,5 +1,6 @@
 package com.example.barrysburritos
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 
 
 
+@Suppress("DEPRECATION")
 class Custom : Fragment() {
 
     private lateinit var customCartViewModel: CustomCartViewModel
@@ -30,6 +32,7 @@ class Custom : Fragment() {
 
     }
 
+    @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -157,6 +160,7 @@ class Custom : Fragment() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun updatePrice(proteinRadioGroup: RadioGroup, checkBoxes: List<CheckBox>, sizeRadioGroup: RadioGroup) {
         var newBasePrice = if (proteinRadioGroup.checkedRadioButtonId == R.id.plandBasedRadio) {
             8.0

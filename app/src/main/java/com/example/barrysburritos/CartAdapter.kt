@@ -1,5 +1,6 @@
 package com.example.barrysburritos
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ class CartAdapter(
     ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateItems(newItems: MutableList<Any>) {
         items = newItems
         notifyDataSetChanged()
@@ -141,6 +143,7 @@ class CartAdapter(
 
 // ViewHolder for CustomCartItem
 class CustomCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    @SuppressLint("SetTextI18n")
     fun bind(customCartItem: CustomCartItem) {
         // Bind data to views
         itemView.findViewById<TextView>(R.id.burritoNameTextView).text = customCartItem.burritoName
@@ -166,6 +169,7 @@ class CustomCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
 
 // ViewHolder for PremadeCartItem
 class PremadeCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    @SuppressLint("SetTextI18n")
     fun bind(premadeCartItem: PremadeCartItem) {
         // Bind data to views
         itemView.findViewById<TextView>(R.id.titleTextView).text = premadeCartItem.item.title

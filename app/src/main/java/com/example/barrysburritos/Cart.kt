@@ -1,6 +1,9 @@
+@file:Suppress("NAME_SHADOWING")
+
 package com.example.barrysburritos
 
 import Order
+import android.annotation.SuppressLint
 
 import android.os.Bundle
 import android.util.Log
@@ -29,6 +32,7 @@ class Cart : Fragment() {
     private lateinit var totalCostObserver: Observer<Double>
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
 
@@ -48,7 +52,7 @@ class Cart : Fragment() {
         val adapter = CartAdapter(allItems , customCartViewModel, premadeCartViewModel)
         recyclerView.adapter = adapter
 
-        var totalCost: Double = 0.0
+        var totalCost = 0.0
         for (item in allItems) {
             if (item is CustomCartItem) {
                 totalCost += item.price * item.quantity
@@ -80,7 +84,7 @@ class Cart : Fragment() {
             premadeCartViewModel.clearCart()
             customCartViewModel.clearCart()
 
-            val allItems = mutableListOf<Any>()
+            val allItems: MutableList<Any> = mutableListOf()
             allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
             allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
             adapter.updateItems(allItems)

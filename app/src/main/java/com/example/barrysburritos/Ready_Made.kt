@@ -35,11 +35,7 @@ class Ready_Made : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_ready_made, container, false)
         val recyclerView: RecyclerView = rootView.findViewById(R.id.ready_made_recycler_view)
 
-        // Observe cartItems LiveData to update UI when cart items change
-        premadeCartViewModel.cartItems.observe(viewLifecycleOwner) { cartItemsList ->
-            val cartSize = cartItemsList.size.toString()
 
-        }
 
         // Get premade items from premadeViewModel
         val premadeList = premadeViewModel.premadeItems

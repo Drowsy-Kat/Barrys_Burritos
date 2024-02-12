@@ -1,5 +1,6 @@
 package com.example.barrysburritos
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,10 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
-import java.io.IOException
-import java.nio.charset.Charset
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PremadeAdapter(
@@ -37,6 +35,7 @@ class PremadeAdapter(
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PremadeViewHolder, position: Int) {
 
 
@@ -67,7 +66,7 @@ class PremadeAdapter(
             // For example, show a different toast
 
 
-            var premadeCartItem = PremadeCartItem(premadeItem, 1)
+            val premadeCartItem = PremadeCartItem(premadeItem, 1)
             premadeCartViewModel.addToCart(premadeCartItem)
 
 
@@ -78,6 +77,7 @@ class PremadeAdapter(
         return premadeList.size
     }
 
+    @SuppressLint("DiscouragedApi")
     private fun getImageResourceByName(context: Context, imageName: String): Int {
         // Resolve image resource ID dynamically
         return context.resources.getIdentifier(
@@ -87,6 +87,7 @@ class PremadeAdapter(
         )
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showPopup(context: Context, premadeItem: PremadeItem) {
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.popup_readymade)
@@ -130,7 +131,7 @@ class PremadeAdapter(
         popupButton.setOnClickListener {
             // Handle button click here
 
-            var premadeCartItem = PremadeCartItem(premadeItem, quantity )
+            val premadeCartItem = PremadeCartItem(premadeItem, quantity )
             premadeCartViewModel.addToCart(premadeCartItem)
             // You can dismiss the dialog if needed
             dialog.dismiss()

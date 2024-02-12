@@ -63,7 +63,7 @@ class CustomCartViewModel : ViewModel() {
         val inputStream = context.resources.openRawResource(resourceId)
 
         // Read existing favorites or create an empty list if there's an error
-        val existingFavorites = try {
+        try {
             inputStream.bufferedReader().use { reader ->
                 val json = reader.readText()
                 if (json.isNotEmpty()) {
@@ -89,19 +89,7 @@ class CustomCartViewModel : ViewModel() {
             }
         }
     }
-    fun returnOrderFromJsonAsString(context: Context): String {
-        var orderJson = ""
-        try {
-            context.openFileInput("favorite.json").use { stream ->
-                orderJson = stream.bufferedReader().use {
-                    it.readText()
-                }
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return orderJson
-    }
+
 
 }
 
