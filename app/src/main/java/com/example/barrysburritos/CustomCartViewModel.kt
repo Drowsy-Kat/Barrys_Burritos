@@ -72,9 +72,8 @@ class CustomCartViewModel : ViewModel() {
                     null
                 }
             }
-        } catch (e: IOException) {
-            null
-        } finally {
+        }
+         finally {
             inputStream.close()
         }
 
