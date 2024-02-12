@@ -15,6 +15,7 @@ import java.nio.charset.Charset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PremadeAdapter(
     private val premadeList: List<PremadeItem>,
@@ -107,11 +108,31 @@ class PremadeAdapter(
 
         val popupButton = dialog.findViewById<Button>(R.id.popupButton)
 
+        val increaseButton = dialog.findViewById<FloatingActionButton>(R.id.popupIncreaseButton)
+        val decreaseButton = dialog.findViewById<FloatingActionButton>(R.id.popupDecreaseButton)
+        val quantityTextView = dialog.findViewById<TextView>(R.id.quantityPopupTextView)
+
+        var quantity = 1
+        quantityTextView.text = quantity.toString()
+
+        increaseButton.setOnClickListener {
+            quantity++
+            quantityTextView.text = quantity.toString()
+        }
+
+        decreaseButton.setOnClickListener {
+            if (quantity > 1) {
+                quantity--
+                quantityTextView.text = quantity.toString()
+            }
+        }
+
+
         // Set OnClickListener for the button
         popupButton.setOnClickListener {
             // Handle button click here
             Toast.makeText(context, "Button Clicked", Toast.LENGTH_SHORT).show()
-            var premadeCartItem = PremadeCartItem(premadeItem, 1)
+            var premadeCartItem = PremadeCartItem(premadeItem, quantity )
             premadeCartViewModel.addToCart(premadeCartItem)
             // You can dismiss the dialog if needed
             dialog.dismiss()
