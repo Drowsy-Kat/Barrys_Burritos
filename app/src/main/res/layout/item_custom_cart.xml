@@ -144,7 +144,8 @@
         android:src="@drawable/baseline_remove_24"
         app:fabCustomSize="25dp"
         app:layout_constraintEnd_toStartOf="@+id/quantityTextView"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        android:contentDescription="@string/lessen_amount_of_item_in_cart" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/customCartAdd"
@@ -155,7 +156,8 @@
         android:src="@android:drawable/ic_input_add"
         app:fabCustomSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        android:contentDescription="@string/decrease_ammount_in_cart" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/customRemove"
@@ -165,7 +167,8 @@
         app:fabCustomSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_close_24" />
+        app:srcCompat="@drawable/baseline_close_24"
+        android:contentDescription="@string/remove_from_cart" />
 
     <TextView
         android:id="@+id/burritoNameTextView"
@@ -175,7 +178,8 @@
         android:layout_marginTop="32dp"
         android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/customCartPriceTextView"
@@ -183,7 +187,8 @@
         android:layout_height="wrap_content"
         android:text="Price"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/customRemove" />
+        app:layout_constraintEnd_toStartOf="@+id/customRemove"
+        tools:ignore="HardcodedText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
