@@ -1,7 +1,7 @@
 package com.example.barrysburritos
 
 import Order
-import android.content.Context
+
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,17 +10,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.map
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import com.google.gson.JsonParser
-import com.google.gson.reflect.TypeToken
-import java.io.IOException
+
 
 
 class Cart : Fragment() {
@@ -74,7 +73,7 @@ class Cart : Fragment() {
                     quantity = cartItem.quantity
                 )
             } ?: emptyList()
-            val currentOrder = Order(customItems, premadeOrderItems)
+            val currentOrder = Order(premadeOrderItems, customItems)
             currentOrder.saveOrderToJson(requireContext())
             Log.d ("Cart", currentOrder.returnOrderFromJsonAsString(requireContext()))
 
@@ -90,7 +89,7 @@ class Cart : Fragment() {
         }
 
         view.findViewById<Button>(R.id.favoriteButton).setOnClickListener {
-            Toast.makeText(requireContext(), "Adding to favorites", Toast.LENGTH_SHORT).show()
+
 
             val favoritesJson = premadeCartViewModel.returnFavoritesFromJsonAsString(requireContext())
             val favorites = getFavorites(favoritesJson)
@@ -101,9 +100,6 @@ class Cart : Fragment() {
                 premadeCartViewModel.addToCart(cartItem)
             } else if (favorites is CustomCartItem) {
                 customCartViewModel.addToCart(favorites)
-            } else {
-                Toast.makeText(requireContext(), "Failed to add to favorites", Toast.LENGTH_SHORT).show()
-                Toast.makeText(requireContext(), favoritesJson, Toast.LENGTH_SHORT).show()
             }
             val allItems = mutableListOf<Any>()
             allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
@@ -123,10 +119,10 @@ class Cart : Fragment() {
 
             if (numElements == 2) {
                 val premadeOrderItem = gson.fromJson(json, PremadeOrderItem::class.java)
-                Toast.makeText(requireContext(), "2", Toast.LENGTH_SHORT).show()
+
                 premadeOrderItem as Any // Cast to Any to match return type
             } else {
-                Toast.makeText(requireContext(), "$numElements", Toast.LENGTH_SHORT).show()
+
                 val customCartItem = gson.fromJson(json, CustomCartItem::class.java)
                 customCartItem as Any // Cast to Any to match return type
             }

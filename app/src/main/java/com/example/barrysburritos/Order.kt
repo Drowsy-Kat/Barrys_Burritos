@@ -4,10 +4,7 @@ import com.example.barrysburritos.PremadeOrderItem
 import com.google.gson.Gson
 import java.io.IOException
 
-class Order(
-    val customItem: List<CustomCartItem>,
-    val premadeItem: List<PremadeOrderItem>
-) {
+class Order(val premadeItems: List<PremadeOrderItem>, val customItems: List<CustomCartItem>){
 
     companion object {
         const val FILE_NAME = "order.json"

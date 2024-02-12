@@ -8,19 +8,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+
 import androidx.recyclerview.widget.RecyclerView
 import java.io.IOException
 import java.nio.charset.Charset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PremadeAdapter(
     private val premadeList: List<PremadeItem>,
-    private val premadeCartViewModel: PremadeCartViewModel,
-    private val fragment: Fragment
+    private val premadeCartViewModel: PremadeCartViewModel
 ) : RecyclerView.Adapter<PremadeAdapter.PremadeViewHolder>() {
 
 
@@ -72,7 +70,7 @@ class PremadeAdapter(
             var premadeCartItem = PremadeCartItem(premadeItem, 1)
             premadeCartViewModel.addToCart(premadeCartItem)
 
-            Toast.makeText(holder.itemView.context, "Button Clicked: ${premadeItem.title}", Toast.LENGTH_SHORT).show()
+
         }
     }
 
@@ -131,7 +129,7 @@ class PremadeAdapter(
         // Set OnClickListener for the button
         popupButton.setOnClickListener {
             // Handle button click here
-            Toast.makeText(context, "Button Clicked", Toast.LENGTH_SHORT).show()
+
             var premadeCartItem = PremadeCartItem(premadeItem, quantity )
             premadeCartViewModel.addToCart(premadeCartItem)
             // You can dismiss the dialog if needed
@@ -141,21 +139,6 @@ class PremadeAdapter(
         dialog.show()
     }
 
-    companion object {
-        fun ssssssssssssssssssssssssssssssss(context: Context, fileName: String): List<PremadeItem> {
-            val json: String = try {
-                context.assets.open(fileName).bufferedReader(Charset.defaultCharset()).use {
-                    it.readText()
-                }
-            } catch (e: IOException) {
-                e.printStackTrace()
-                return emptyList()//todo: get rid of this
-            }
-
-            val listType = object : TypeToken<List<PremadeItem>>() {}.type
-            return Gson().fromJson(json, listType)
-        }
-    }
 
 
 }

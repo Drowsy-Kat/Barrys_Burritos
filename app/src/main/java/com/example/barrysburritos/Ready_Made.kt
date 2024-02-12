@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +38,7 @@ class Ready_Made : Fragment() {
         // Observe cartItems LiveData to update UI when cart items change
         premadeCartViewModel.cartItems.observe(viewLifecycleOwner) { cartItemsList ->
             val cartSize = cartItemsList.size.toString()
-            Toast.makeText(requireContext(), cartSize, Toast.LENGTH_SHORT).show()
+
         }
 
         // Get premade items from premadeViewModel
@@ -46,7 +46,7 @@ class Ready_Made : Fragment() {
         Log.d("Ready_Made", "Premade List: $premadeList")
 
         // Initialize adapter
-        adapter = PremadeAdapter(premadeList, premadeCartViewModel, this)
+        adapter = PremadeAdapter(premadeList, premadeCartViewModel)
         recyclerView.adapter = adapter
 
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)

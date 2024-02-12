@@ -155,7 +155,7 @@ class CustomCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
         itemView.findViewById<TextView>(R.id.quantityTextView).text = customCartItem.quantity.toString()
         itemView.findViewById<TextView>(R.id.customCartPriceTextView).text = "£${"%.2f".format(customCartItem.price * customCartItem.quantity)}"
 
-        val favoriteButton = itemView.findViewById<FloatingActionButton>(R.id.favoriteCustomButton)
+
 
 
 

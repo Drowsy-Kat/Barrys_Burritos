@@ -12,30 +12,4 @@ data class CustomCartItem(
     val size: String,
     var quantity: Int,
     val price: Double
-){
-    override fun toString(): String {
-        return """
-            Item Name: $burritoName
-            Protein Choice: $proteinChoice
-            Rice Choice: $riceChoice
-            Beans Choice: $beansChoice
-            Guacamole: $guacamole
-            Sour Cream: $sourCream
-            Cheese: $cheese
-            Salsa: $salsa
-            Size: $size
-            Quantity: $quantity
-        """.trimIndent()
-    }
-
-    fun increaseQuantity() {
-        quantity++
-    }
-
-    fun decreaseQuantity() {
-        if (quantity > 0) {
-            quantity--
-        }
-    }
-
-}
+)

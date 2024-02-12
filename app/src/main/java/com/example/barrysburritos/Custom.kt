@@ -12,6 +12,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+
 import androidx.lifecycle.ViewModelProvider
 
 
@@ -65,10 +66,7 @@ class Custom : Fragment() {
 
 
 
-        customCartViewModel.cartItems.observe(viewLifecycleOwner) { cartItemsList ->
-            val cartSize = cartItemsList.size.toString()
-            Toast.makeText(requireContext(), cartSize, Toast.LENGTH_SHORT).show()
-        }
+
 
 
 
@@ -105,7 +103,7 @@ class Custom : Fragment() {
 
 
 
-                Toast.makeText(requireContext(), cartItem.toString(), Toast.LENGTH_LONG).show()
+
                 val fragmentTransaction = requireFragmentManager().beginTransaction()
                 fragmentTransaction.replace(R.id.main_frame, Custom())
                 fragmentTransaction.addToBackStack(null) // Optional: Add to back stack if you want to allow back navigation

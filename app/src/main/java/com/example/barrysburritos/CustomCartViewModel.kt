@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
-import java.io.File
 import java.io.IOException
 
 
@@ -50,15 +49,7 @@ class CustomCartViewModel : ViewModel() {
         updateTotalCost()
     }
 
-    fun updateCartItem(updatedCartItem: CustomCartItem) {
-        val currentList = _cartItems.value.orEmpty().toMutableList()
-        val index = currentList.indexOfFirst { it == updatedCartItem }
-        if (index != -1) {
-            currentList[index] = updatedCartItem
-            _cartItems.value = currentList
-        }
 
-    }
 
     fun clearCart() {
         _cartItems.value = emptyList()
