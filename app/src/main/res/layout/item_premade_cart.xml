@@ -63,12 +63,11 @@
         android:id="@+id/premadeRemove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:clickable="true"
         app:fabCustomSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/premadeCartAdd"
+        app:layout_constraintTop_toBottomOf="@+id/favoritePremadeButton"
         app:srcCompat="@drawable/baseline_close_24" />
 
     <TextView
@@ -78,6 +77,16 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/premadeRemove" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favoritePremadeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/premadeRemove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/premadeCartAdd"
+        app:srcCompat="@drawable/baseline_favorite_24" />
 
     <!-- Add other views here -->
 

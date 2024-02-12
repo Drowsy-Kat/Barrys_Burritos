@@ -1,9 +1,11 @@
 package com.example.barrysburritos
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
-
+import com.google.gson.Gson
+import java.io.File
+import java.io.IOException
 
 
 class CustomCartViewModel : ViewModel() {
@@ -63,6 +65,52 @@ class CustomCartViewModel : ViewModel() {
         _totalCost.value = 0.0
     }
 
+
+    fun addToFavorites(cartItem: CustomCartItem, context: Context) {
+        val gson = Gson()
+        val resourceId = R.raw.favorite // Assuming the resource ID of favorite.json is 'favorite'
+        val inputStream = context.resources.openRawResource(resourceId)
+
+        // Read existing favorites or create an empty list if there's an error
+        val existingFavorites = try {
+            inputStream.bufferedReader().use { reader ->
+                val json = reader.readText()
+                if (json.isNotEmpty()) {
+                    gson.fromJson(json, CustomCartItem::class.java)
+                } else {
+                    null
+                }
+            }
+        } catch (e: IOException) {
+            null
+        } finally {
+            inputStream.close()
+        }
+
+        // Add the new item to favorites
+
+
+
+        // Write the updated favorites list back to the file
+        context.openFileOutput("favorite.json", Context.MODE_PRIVATE).use { outputStream ->
+            outputStream.bufferedWriter().use { writer ->
+                writer.write(gson.toJson(cartItem))
+            }
+        }
+    }
+    fun returnOrderFromJsonAsString(context: Context): String {
+        var orderJson = ""
+        try {
+            context.openFileInput("favorite.json").use { stream ->
+                orderJson = stream.bufferedReader().use {
+                    it.readText()
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return orderJson
+    }
 
 }
 

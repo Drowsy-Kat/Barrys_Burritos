@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -69,6 +70,12 @@ class CartAdapter(
                         }
                     }
 
+                holder.itemView.findViewById<FloatingActionButton>(R.id.favoriteCustomButton)
+                    .setOnClickListener {
+                        customCartViewModel.addToFavorites(customCartItem, holder.itemView.context)
+
+                    }
+
 
             }
 
@@ -104,6 +111,16 @@ class CartAdapter(
 
                         notifyItemChanged(holder.adapterPosition)
                     }
+
+                holder.itemView.findViewById<FloatingActionButton>(R.id.favoritePremadeButton)
+                    .setOnClickListener {
+                        premadeCartViewModel.addToFavorites(premadeCartItem, holder.itemView.context)
+                        val json = premadeCartViewModel.returnFavoritesFromJsonAsString(holder.itemView.context)
+                        Toast.makeText(holder.itemView.context, json, Toast.LENGTH_SHORT).show()
+
+
+
+                    }
             }
         }
 
@@ -138,6 +155,7 @@ class CustomCartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
         itemView.findViewById<TextView>(R.id.quantityTextView).text = customCartItem.quantity.toString()
         itemView.findViewById<TextView>(R.id.customCartPriceTextView).text = "£${"%.2f".format(customCartItem.price * customCartItem.quantity)}"
 
+        val favoriteButton = itemView.findViewById<FloatingActionButton>(R.id.favoriteCustomButton)
 
 
 
