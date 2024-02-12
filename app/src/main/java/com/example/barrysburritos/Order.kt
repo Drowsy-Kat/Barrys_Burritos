@@ -1,7 +1,9 @@
 import android.content.Context
+import android.widget.Toast
 import com.example.barrysburritos.CustomCartItem
 import com.example.barrysburritos.PremadeOrderItem
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.io.IOException
 
 class Order(val premadeItems: List<PremadeOrderItem>, val customItems: List<CustomCartItem>){
@@ -36,5 +38,30 @@ class Order(val premadeItems: List<PremadeOrderItem>, val customItems: List<Cust
             e.printStackTrace()
         }
         return orderJson
+    }
+
+    fun readOrderFromJson(context: Context): List<Any>{
+        var premadeItemsList: List<PremadeOrderItem> = emptyList()
+        var customItemsList: List<CustomCartItem> = emptyList()
+
+        val orderJson = returnOrderFromJsonAsString(context)
+
+        if (orderJson.isNotEmpty()) {
+            val gson = Gson()
+            val orderType = object : TypeToken<Order>() {}.type
+            val order = gson.fromJson<Order>(orderJson, orderType)
+
+            premadeItemsList = order.premadeItems
+            customItemsList = order.customItems
+        } else {
+            // If the JSON is empty, return an empty list
+            Toast.makeText(context, "No order found", Toast.LENGTH_SHORT).show()
+            return emptyList()
+        }
+        val allItems = mutableListOf<Any>()
+        allItems.addAll(customItemsList)
+        allItems.addAll(premadeItemsList)
+
+        return allItems
     }
 }

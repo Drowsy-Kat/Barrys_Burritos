@@ -46,4 +46,5 @@
     <string name="decrease_ammount_in_cart">decrease amount in cart</string>
     <string name="image_of_a_burrito">image of a burrito</string>
     <string name="banner_image_of_burritos">banner image of burritos</string>
+    <string name="last_order">Last Order</string>
 </resources>

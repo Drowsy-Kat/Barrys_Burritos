@@ -10,16 +10,6 @@
     <!-- Customize this layout based on your requirements for displaying CustomCartItem -->
     <!-- Example: -->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/favoriteCustomButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/baseline_favorite_24"
-        app:layout_constraintBottom_toTopOf="@+id/customRemove"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/add_as_favourite" />
-
     <TextView
         android:id="@+id/customCartItemTitle"
         android:layout_width="match_parent"
@@ -93,17 +83,6 @@
         app:layout_constraintTop_toBottomOf="@+id/sourCreamTextView" />
 
     <TextView
-        android:id="@+id/x"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="x"
-        app:layout_constraintEnd_toStartOf="@+id/customCartAdd"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
-        tools:ignore="HardcodedText" />
-
-    <TextView
         android:id="@+id/salsaTextViewCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,8 +90,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/salsa"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cheeseTextView"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@+id/cheeseTextView" />
 
     <TextView
         android:id="@+id/sizeTextView"
@@ -124,52 +102,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/salsaTextViewCart"
         tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/quantityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="1"
-        app:layout_constraintEnd_toStartOf="@+id/x"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/customCartSubtract"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:src="@drawable/baseline_remove_24"
-        app:fabCustomSize="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/quantityTextView"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
-        android:contentDescription="@string/lessen_amount_of_item_in_cart" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/customCartAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
-        app:fabCustomSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
-        android:contentDescription="@string/decrease_ammount_in_cart" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/customRemove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabCustomSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_close_24"
-        android:contentDescription="@string/remove_from_cart" />
 
     <TextView
         android:id="@+id/burritoNameTextView"
@@ -188,7 +120,30 @@
         android:layout_height="wrap_content"
         android:text="Price"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/customRemove"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+
+        android:text="x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/quantityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+
+        android:text="1"
+        app:layout_constraintEnd_toStartOf="@+id/x"
+        app:layout_constraintTop_toBottomOf="@+id/customCartItemTitle"
         tools:ignore="HardcodedText" />
 
 

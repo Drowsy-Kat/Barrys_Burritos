@@ -4,6 +4,7 @@ package com.example.barrysburritos
 
 import Order
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 
 import android.os.Bundle
@@ -24,7 +25,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import com.google.gson.JsonParser
-
+import com.google.gson.reflect.TypeToken
+import java.io.IOException
 
 
 class Cart : Fragment() {
@@ -118,6 +120,10 @@ class Cart : Fragment() {
             }
         }
 
+        view.findViewById<Button>(R.id.viewLastOrderButton).setOnClickListener {
+            val allItems = readOrderFromJson(requireContext())
+            showPopup(allItems)
+        }
 
 
         return view
@@ -158,9 +164,59 @@ class Cart : Fragment() {
 
 
 
+    private fun returnOrderFromJsonAsString(context: Context): String {
+        var orderJson = ""
 
+        try {
+            context.openFileInput("order.json").use { stream ->
+                orderJson = stream.bufferedReader().use {
+                    it.readText()
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return orderJson
+    }
 
+    fun readOrderFromJson(context: Context): MutableList<Any> {
+        var premadeItemsList: List<PremadeOrderItem> = emptyList()
+        var customItemsList: List<CustomCartItem> = emptyList()
 
+        val orderJson = returnOrderFromJsonAsString(context)
+
+        if (orderJson.isNotEmpty()) {
+            val gson = Gson()
+            val orderType = object : TypeToken<Order>() {}.type
+            val order = gson.fromJson<Order>(orderJson, orderType)
+
+            premadeItemsList = order.premadeItems
+            customItemsList = order.customItems
+        } else {
+            // If the JSON is empty, return an empty list
+            Toast.makeText(context, "No order found", Toast.LENGTH_SHORT).show()
+            return mutableListOf()
+        }
+
+        val allItems = mutableListOf<Any>()
+        allItems.addAll(customItemsList)
+        allItems.addAll(premadeItemsList.map { premadeCartViewModel.convertToCartItem(it,premadeViewModel) })
+
+        return allItems
+    }
+
+    fun showPopup(allItems: MutableList<Any>) {
+        val dialog = Dialog(requireContext())
+        dialog.setContentView(R.layout.last_order_popup)
+
+        val recyclerView: RecyclerView = dialog.findViewById(R.id.previousOrderRecycler)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val adapter = LastOrderAdapter(allItems)
+        recyclerView.adapter = adapter
+
+        dialog.show()
+    }
 
 
 
@@ -172,5 +228,5 @@ class Cart : Fragment() {
 
 
 
-
+// TODO: show details of the current favorite
 

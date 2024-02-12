@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     // TODO: annotate code
     // TODO: clean up code
     // TODO: organise file structure
-    // TODO: display previous order
+
 
 
 }
