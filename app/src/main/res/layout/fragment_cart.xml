@@ -54,8 +54,7 @@
         android:layout_height="wrap_content"
         android:text="@string/add_favorite_button"
         app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cartPriceTextView" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/viewLastOrderButton"
@@ -64,6 +63,14 @@
         android:text="@string/last_order"
         app:layout_constraintBottom_toTopOf="@+id/cartPriceTextView"
         app:layout_constraintEnd_toStartOf="@+id/favoriteButton"
+        app:layout_constraintStart_toEndOf="@+id/currentFavorite" />
+
+    <Button
+        android:id="@+id/currentFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Favorite"
+        app:layout_constraintBottom_toTopOf="@+id/cartPriceTextView"
         app:layout_constraintStart_toStartOf="parent" />
 
 
