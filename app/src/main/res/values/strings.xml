@@ -42,8 +42,8 @@
     <string name="lessen_amount_of_item_in_cart">lessen amount of item in cart</string>
     <string name="remove_from_cart">remove from cart</string>
     <string name="add_as_favourite">Add as favourite</string>
-    <string name="increase_ammount_to_add">increase ammount to add</string>
-    <string name="decrease_ammount_in_cart">decrease ammount in cart</string>
+    <string name="increase_ammount_to_add">increase amount to add</string>
+    <string name="decrease_ammount_in_cart">decrease amount in cart</string>
     <string name="image_of_a_burrito">image of a burrito</string>
     <string name="banner_image_of_burritos">banner image of burritos</string>
 </resources>
