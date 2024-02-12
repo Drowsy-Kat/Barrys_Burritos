@@ -276,8 +276,8 @@ class Cart : Fragment() {
     }
 
     fun readOrderFromJson(context: Context): MutableList<Any> {
-        var premadeItemsList: List<PremadeOrderItem> = emptyList()
-        var customItemsList: List<CustomCartItem> = emptyList()
+        val premadeItemsList: List<PremadeOrderItem>
+        val customItemsList: List<CustomCartItem>
 
         val orderJson = returnOrderFromJsonAsString(context)
 

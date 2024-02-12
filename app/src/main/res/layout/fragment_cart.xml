@@ -90,7 +90,7 @@
         android:paddingTop="4dp"
         android:paddingEnd="8dp"
         android:paddingBottom="4dp"
-        android:text="Current Favorite"
+        android:text="@string/current_favorite"
         app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
         app:layout_constraintEnd_toStartOf="@+id/viewLastOrderButton"
         app:layout_constraintStart_toStartOf="parent" />
