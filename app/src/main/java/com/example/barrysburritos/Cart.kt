@@ -127,78 +127,93 @@ class Cart : Fragment() {
         }
 
         view.findViewById<Button>(R.id.currentFavorite).setOnClickListener{
-            val favoritesJson =
-                premadeCartViewModel.returnFavoritesFromJsonAsString(requireContext())
-            val favorites = getFavorites(favoritesJson)
-            if (favorites is PremadeOrderItem) {
-                val premadeItem = premadeCartViewModel.convertToCartItem(favorites, premadeViewModel)
-                val dialog = Dialog(requireContext())
-                dialog.setContentView(R.layout.current_favorite_premade_popup)
-                val title = dialog.findViewById<TextView>(R.id.favouritePopupTitlePremade)
-                val description = dialog.findViewById<TextView>(R.id.favouritePopupDescription)
-                val price = dialog.findViewById<TextView>(R.id.favouritePopupPricePremade)
-                val quantity = dialog.findViewById<TextView>(R.id.favouritePopupQuantityCustom)
-                val image = dialog.findViewById<ImageView>(R.id.favouritePopupImage)
-                title.text = premadeItem.item.title
-                description.text = premadeItem.item.description
-                price.text = "£${"%.2f".format(premadeItem.item.price)}"
-                quantity.text = " ${premadeItem.quantity}"
-                val resourceId = getImageResourceByName(requireContext(), premadeItem.item.imageName)
-                image.setImageResource(resourceId)
-                dialog.findViewById<Button>(R.id.favouritePopupAddToCartPremade).setOnClickListener{
-                    premadeCartViewModel.addToCart(premadeItem)
-
-                    val allItems = mutableListOf<Any>()
-                    allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
-                    allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
-                    adapter.updateItems(allItems)
-                    dialog.dismiss()
-                }
-
-                dialog.show()
-
-
-            }
-            else if (favorites is CustomCartItem) {
-                val dialog = Dialog(requireContext())
-                dialog.setContentView(R.layout.current_favorite_custom_popup)
-
-                val name = dialog.findViewById<TextView>(R.id.burritoNameTextView)
-                val rice = dialog.findViewById<TextView>(R.id.riceTextView)
-                val beans = dialog.findViewById<TextView>(R.id.beansTextView)
-                val protein = dialog.findViewById<TextView>(R.id.proteinTextView)
-                val salsa = dialog.findViewById<TextView>(R.id.salsaTextViewFavorite)
-                val guac = dialog.findViewById<TextView>(R.id.guacamoleTextViewFavorite)
-                val cheese = dialog.findViewById<TextView>(R.id.cheeseTextViewFavorite)
-                val sourCream = dialog.findViewById<TextView>(R.id.sourCreamTextViewFavorite)
-                val quantity = dialog.findViewById<TextView>(R.id.favouritePopupQuantityCustom)
-                val price = dialog.findViewById<TextView>(R.id.favouritePopupPriceCustom)
-
-
-                name.text = favorites.burritoName
-                rice.text = favorites.riceChoice
-                beans.text = favorites.beansChoice
-                protein.text = favorites.proteinChoice
-                guac.visibility = if (favorites.guacamole) View.VISIBLE else View.GONE
-                salsa.visibility = if (favorites.salsa) View.VISIBLE else View.GONE
-                cheese.visibility = if (favorites.cheese) View.VISIBLE else View.GONE
-                sourCream.visibility = if (favorites.sourCream) View.VISIBLE else View.GONE
-
-                quantity.text = " ${favorites.quantity}"
-                price.text = "£${"%.2f".format(favorites.price * favorites.quantity)}"
-
-                dialog.findViewById<Button>(R.id.favouritePopupAddToCartCustom).setOnClickListener{
-                    customCartViewModel.addToCart(favorites)
-                    val allItems = mutableListOf<Any>()
-                    allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
-                    allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
-                    adapter.updateItems(allItems)
-                    dialog.dismiss()
-                }
-                dialog.show()
-
-            }else{
+            if(!isFavoriteEmpty(requireContext())){
                 Toast.makeText(requireContext(), "No favorites to show", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
+                val favoritesJson =
+                    premadeCartViewModel.returnFavoritesFromJsonAsString(requireContext())
+                val favorites = getFavorites(favoritesJson)
+                when (favorites) {
+                    is PremadeOrderItem -> {
+                        val premadeItem =
+                            premadeCartViewModel.convertToCartItem(favorites, premadeViewModel)
+                        val dialog = Dialog(requireContext())
+                        dialog.setContentView(R.layout.current_favorite_premade_popup)
+                        val title = dialog.findViewById<TextView>(R.id.favouritePopupTitlePremade)
+                        val description = dialog.findViewById<TextView>(R.id.favouritePopupDescription)
+                        val price = dialog.findViewById<TextView>(R.id.favouritePopupPricePremade)
+                        val quantity = dialog.findViewById<TextView>(R.id.favouritePopupQuantityCustom)
+                        val image = dialog.findViewById<ImageView>(R.id.favouritePopupImage)
+                        title.text = premadeItem.item.title
+                        description.text = premadeItem.item.description
+                        price.text = "£${"%.2f".format(premadeItem.item.price)}"
+                        quantity.text = " ${premadeItem.quantity}"
+                        val resourceId =
+                            getImageResourceByName(requireContext(), premadeItem.item.imageName)
+                        image.setImageResource(resourceId)
+                        dialog.findViewById<Button>(R.id.favouritePopupAddToCartPremade)
+                            .setOnClickListener {
+                                premadeCartViewModel.addToCart(premadeItem)
+
+                                val allItems = mutableListOf<Any>()
+                                allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
+                                allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
+                                adapter.updateItems(allItems)
+                                dialog.dismiss()
+                            }
+
+                        dialog.show()
+
+
+                    }
+
+                    is CustomCartItem -> {
+                        val dialog = Dialog(requireContext())
+                        dialog.setContentView(R.layout.current_favorite_custom_popup)
+
+                        val name = dialog.findViewById<TextView>(R.id.burritoNameTextView)
+                        val rice = dialog.findViewById<TextView>(R.id.riceTextView)
+                        val beans = dialog.findViewById<TextView>(R.id.beansTextView)
+                        val protein = dialog.findViewById<TextView>(R.id.proteinTextView)
+                        val salsa = dialog.findViewById<TextView>(R.id.salsaTextViewFavorite)
+                        val guac = dialog.findViewById<TextView>(R.id.guacamoleTextViewFavorite)
+                        val cheese = dialog.findViewById<TextView>(R.id.cheeseTextViewFavorite)
+                        val sourCream = dialog.findViewById<TextView>(R.id.sourCreamTextViewFavorite)
+                        val quantity = dialog.findViewById<TextView>(R.id.favouritePopupQuantityCustom)
+                        val price = dialog.findViewById<TextView>(R.id.favouritePopupPriceCustom)
+
+
+                        name.text = favorites.burritoName
+                        rice.text = favorites.riceChoice
+                        beans.text = favorites.beansChoice
+                        protein.text = favorites.proteinChoice
+                        guac.visibility = if (favorites.guacamole) View.VISIBLE else View.GONE
+                        salsa.visibility = if (favorites.salsa) View.VISIBLE else View.GONE
+                        cheese.visibility = if (favorites.cheese) View.VISIBLE else View.GONE
+                        sourCream.visibility = if (favorites.sourCream) View.VISIBLE else View.GONE
+
+                        quantity.text = " ${favorites.quantity}"
+                        price.text = "£${"%.2f".format(favorites.price * favorites.quantity)}"
+
+                        dialog.findViewById<Button>(R.id.favouritePopupAddToCartCustom)
+                            .setOnClickListener {
+                                customCartViewModel.addToCart(favorites)
+                                val allItems = mutableListOf<Any>()
+                                allItems.addAll(customCartViewModel.cartItems.value ?: emptyList())
+                                allItems.addAll(premadeCartViewModel.cartItems.value ?: emptyList())
+                                adapter.updateItems(allItems)
+                                dialog.dismiss()
+                            }
+                        dialog.show()
+
+                    }
+
+                    else -> {
+                        Toast.makeText(requireContext(), "No favorites to show", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
             }
 
         }
@@ -312,6 +327,7 @@ class Cart : Fragment() {
 
  }
 
+//TODO: current fav crashes when empty
 
 
 

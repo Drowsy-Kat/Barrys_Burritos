@@ -15,6 +15,7 @@
         android:fontFamily="@font/aldrich"
         android:text="@string/custom_burrito_title"
         android:textSize="40sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +44,8 @@
             <RadioGroup
                 android:id="@+id/radioGroupProtein"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/background_box">
 
                 <RadioButton
                     android:id="@+id/radioButton2"
@@ -83,7 +85,8 @@
             <RadioGroup
                 android:id="@+id/radioGroupRice"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/background_box">
 
                 <RadioButton
                     android:id="@+id/radioButton5"
@@ -117,7 +120,8 @@
             <RadioGroup
                 android:id="@+id/radioGroupBeans"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/background_box">
 
                 <RadioButton
                     android:id="@+id/radioButton9"
@@ -153,28 +157,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="@string/guacamole" />
+                android:text="@string/guacamole"
+                android:background="@drawable/background_box"/>
 
             <CheckBox
                 android:id="@+id/sourCreamCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="@string/sour_cream" />
+                android:text="@string/sour_cream"
+                android:background="@drawable/background_box"/>
 
             <CheckBox
                 android:id="@+id/cheeseCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="@string/cheese" />
+                android:text="@string/cheese"
+                android:background="@drawable/background_box"/>
 
             <CheckBox
                 android:id="@+id/salsaCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
-                android:text="@string/salsa" />
+                android:text="@string/salsa"
+                android:background="@drawable/background_box"/>
 
             <TextView
                 android:id="@+id/textView8"
@@ -187,7 +195,8 @@
 
                 android:id="@+id/radioGroupSize"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/background_box">
 
                 <RadioButton
                     android:id="@+id/radioMedium"

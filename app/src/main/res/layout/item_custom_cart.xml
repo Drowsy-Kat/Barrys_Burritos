@@ -5,7 +5,10 @@
     android:id="@+id/salsaTextView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_box2"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
 
     <!-- Customize this layout based on your requirements for displaying CustomCartItem -->
     <!-- Example: -->
